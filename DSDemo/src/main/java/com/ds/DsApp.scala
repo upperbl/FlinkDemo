@@ -15,8 +15,8 @@ object DsApp {
     env.setParallelism(1)
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
     val properties = new Properties()
-    properties.put("bootstrap.servers","gx1.leaphd.com:6667")
-    properties.put("zookeeper.connect.server","gx1.leaphd.com:2181")
+    properties.put("bootstrap.servers","node1.test.com:6667")
+    properties.put("zookeeper.connect.server","node1.test.com:2181")
     properties.put("group.id","DSTOPIC5")
     val kafakStream = env.addSource(new FlinkKafkaConsumer[String]("DSTOPIC2", new SimpleStringSchema(), properties))
     val filterStream = kafakStream.map(data => {
